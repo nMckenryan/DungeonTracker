@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class CreateCampaign extends Component {
 
@@ -10,28 +11,31 @@ export default class CreateCampaign extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            campaign: ""
+            cName: ""
         }
     }
 
     onChangeCampaign(e) {
         this.setState(
             {
-                campaign: e.target.value
+                cName: e.target.value
             }
         );
     }
 
     onSubmit(e) {
         e.preventDefault();
-        const campaign = {
-            campaign: this.state.campaign,
+        const cName = {
+            cName: this.state.cName,
         }
 
-        console.log(campaign + " submitted");
+        console.log(cName + " submitted");
+
+        axios.post('http://localhost:5000/campaigns/add', cName)
+            .then(res => console.log(res.data)); //promise that acknowledges submission
 
         this.setState({
-            username: "" //resets User
+            cName: "" //resets User
         })
     }
 
@@ -45,7 +49,7 @@ export default class CreateCampaign extends Component {
                 <input  type="text"
                     required
                     className="form-control"
-                    value={this.state.campaign}
+                    value={this.state.cName}
                     onChange={this.onChangeCampaign}
                     />
           </div>

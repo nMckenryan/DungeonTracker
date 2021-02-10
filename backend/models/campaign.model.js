@@ -8,7 +8,7 @@ const campaignSchema = new Schema({
     cName: {
         type: String,
         required: true,
-        //unique: true,
+        unique: true,
         trim: true,
         minlength: 3
     },

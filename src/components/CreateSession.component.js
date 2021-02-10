@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
+import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
 
 export default class CreateSession extends Component {
@@ -18,14 +19,19 @@ export default class CreateSession extends Component {
             character: "",
             sesLog: "",
             date: new Date(),
-            users: []
+            campaignList: []
         }
     }
 
-    componentDidMount() {
-        this.setState({
-            users: ['test'],
-            username: "test username"
+    componentDidMount() { //get and display campaign list
+        axios.get('http://localhost:5000/campaigns')
+        .then(response => {
+            if(response.data.length > 0) {
+                this.setState({
+                campaignList: response.data.map(campaignItem => campaignItem.cName),
+                campaign: response.data[0].cName //displays campaign name of first in db
+            })
+            }
         })
     }
 
@@ -73,6 +79,9 @@ export default class CreateSession extends Component {
 
         console.log(session + " submitted");
 
+        axios.post('http://localhost:5000/campaigns/add', session)
+            .then(res => console.log(res.data)); //promise that acknowledges submission
+
         window.location = "/"; //takes back to homepage (sessionlist)
     }
 
@@ -89,7 +98,7 @@ export default class CreateSession extends Component {
                     value={this.state.campaign}
                     onChange={this.onChangeCampaign}>
                     {
-                      this.state.users.map(function(campaign) {
+                      this.state.campaignList.map(function(campaign) {
                         return <option 
                           key={campaign}
                           value={campaign}>{campaign}
