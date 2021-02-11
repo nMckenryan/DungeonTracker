@@ -14,7 +14,7 @@ export default class CreateSession extends Component {
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        this.state = {
+        this.state = { 
             campaign: "",
             character: "",
             sesLog: "",
@@ -79,7 +79,7 @@ export default class CreateSession extends Component {
 
         console.log(session + " submitted");
 
-        axios.post('http://localhost:5000/campaigns/add', session)
+        axios.post('http://localhost:5000/sessions/add', session)
             .then(res => console.log(res.data)); //promise that acknowledges submission
 
         window.location = "/"; //takes back to homepage (sessionlist)

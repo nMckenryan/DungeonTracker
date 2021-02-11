@@ -9,13 +9,13 @@ router.route('/').get((req, res) => {
 
 //CREATE SESSION
 router.route('/add').post((req, res) => {
-    const adventure = req.body.adventure;
+    const campaign = req.body.campaign;
     const character = req.body.character;
     const sesLog = req.body.sesLog;
     const date = Date.parse(req.body.date); //2009-06-15T13:45:30 for testing
   
     const newSession = new Session({
-      adventure,
+      campaign,
       character,
       sesLog,
       date,
@@ -37,7 +37,7 @@ router.route('/:id').get((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Session.findById(req.params.id)
     .then(session => {
-      session.adventure = req.body.adventure;
+      session.campaign = req.body.campaign;
       session.character = req.body.character;
       session.sesLog = req.body.sesLog;
       session.date = Date.parse(req.body.date);
