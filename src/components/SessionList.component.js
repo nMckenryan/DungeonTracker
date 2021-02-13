@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 const Session = props => (
     <tr>
       <td>{props.session.campaign}</td>
+      <td>{props.session.date.substring(0,10)}</td>
       <td>{props.session.character}</td>
       <td>{props.session.sesLog}</td>
-      <td>{props.session.date.substring(0,10)}</td>
       <td>
-        <Link to={"/edit/"+props.session._id}>edit</Link> | <button href="#" onClick={() => { props.deleteSession(props.session._id) }}>delete</button>
+        <Link to={"/edit/"+props.session._id}><button>Edit</button></Link> | <button href="#" onClick={() => { props.deleteSession(props.session._id) }}>delete</button>
       </td>
     </tr>
   )
@@ -57,9 +57,9 @@ export default class SessionList extends Component {
               <thead className="thead-light">
                 <tr>
                   <th>Campaign</th>
+                  <th>Date</th>
                   <th>Character</th>
                   <th>Session Log</th>
-                  <th>Date</th>
                   <th>Actions</th>
                 </tr>
               </thead>

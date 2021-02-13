@@ -92,7 +92,7 @@ export default class CreateSession extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
                 <label>Campaign: </label>
-                <select ref="userInput"
+                <select 
                     required
                     className="form-control"
                     value={this.state.campaign}

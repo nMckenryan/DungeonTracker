@@ -17,8 +17,8 @@ function App() {
         <br/>
         <Route path="/" exact component={SessionList} />
         <Route path="/edit/:id" component={EditSession} />
-        <Route path="/create" component={CreateSession} />
-        <Route path="/user" component={CreateCampaign} />
+        <Route path="/createSes" component={CreateSession} />
+        <Route path="/createCamp" component={CreateCampaign} />
       </div>
     </Router>
   );

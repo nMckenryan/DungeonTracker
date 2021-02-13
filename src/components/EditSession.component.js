@@ -108,7 +108,7 @@ export default class EditSession extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
                 <label>Campaign: </label>
-                <select ref="userInput"
+                <select 
                     required
                     className="form-control"
                     value={this.state.campaign}
