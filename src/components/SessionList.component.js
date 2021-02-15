@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
+import '../custom.scss';
 
 //SESSION FUNC COMPONENT FOR DISPLAYING INDIVIDUAL FIELDS
 const Session = props => (
@@ -52,8 +53,7 @@ export default class SessionList extends Component {
 
     render() {
         return (
-          <div>
-            <h3>Logged Sessions</h3>
+          <div class="mainCont">
             <Table className="table">
               <thead className="thead-light">
                 <tr>

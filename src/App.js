@@ -18,7 +18,6 @@ function App() {
         <br/>
         <h1>Dungeon Tracker</h1>
         <TopBar />
-        <br/>
         <Route path="/" exact component={SessionList} />
         <Route path="/edit/:id" component={EditSession} />
         <Route path="/createSes" component={CreateSession} />
