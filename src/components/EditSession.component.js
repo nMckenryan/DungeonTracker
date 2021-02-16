@@ -103,7 +103,7 @@ export default class EditSession extends Component {
 
     render() {
         return (
-            <div>
+            <div class="window">
             <h3>Edit RPG Session</h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 

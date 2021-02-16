@@ -1,10 +1,14 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500&display=swap");
 
 $mainFont: antiquewhite;
 
-$cork: #d2b172;
+$cork: #947a4a;
 $torchLight: #8b7346;
 $wall: #727272;
+$leather: rgba(88, 54, 54, 0.705);
 $steel: #969696;
 html,
 body {
@@ -12,24 +16,26 @@ body {
   color: $mainFont;
   width: 100%;
   height: 100%;
+
+  h1 {
+    font-family: "Cinzel", serif;
+  }
 }
 
-.nav-item {
-  background-color: rgb(155, 95, 95);
-  color: $mainFont;
+.main {
+  background-color: $cork;
+  font-family: "Cormorant", serif;
+
+  tbody {
+    font-family: "Kalam", cursive;
+  }
 }
 
 a {
+  background-color: $steel;
   color: #fff;
+  font-family: "Cormorant", serif;
 }
 a:hover {
-  color: #00f;
-}
-
-.thead-light {
-  background-color: steel;
-}
-
-.mainCont {
-  background-color: $cork;
+  color: maroon;
 }
