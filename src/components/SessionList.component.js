@@ -53,7 +53,7 @@ export default class SessionList extends Component {
 
     render() {
         return (
-          <div class="mainCont">
+          <div className="mainCont">
             <Table className="table">
               <thead className="thead-light">
                 <tr>

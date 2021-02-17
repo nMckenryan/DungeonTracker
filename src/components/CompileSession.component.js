@@ -3,7 +3,9 @@ import DatePicker from 'react-datepicker'
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
 
-export default class CreateSession extends Component {
+//TODO: Combine with CreateSession? - Update Session
+
+export default class CompileSession extends Component {
     constructor(props){
         super(props);
 
@@ -13,29 +15,49 @@ export default class CreateSession extends Component {
         this.onChangeSeslog = this.onChangeSeslog.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.isEdit = this.isEdit.bind(this);
 
-        this.state = { 
+        this.state = {
             campaign: "",
             character: "",
             sesLog: "",
             date: new Date(),
-            campaignList: []
+            campaignList: [],
+            isEdit: false
         }
     }
 
     componentDidMount() { //get and display campaign list
+
+      //TODO: CHECK IF character VARIABLE SET. 
+
+      //SET SESSION
+      axios.get('http://localhost:5000/sessions/'+this.props.match.params.id)
+      .then(response => {
+        this.setState({
+          campaign: response.data.campaign,
+          character: response.data.character,
+          sesLog: response.data.sesLog,
+          date: new Date(response.data.date)
+        })   
+        console.log(this.state.character);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+        //SET CAMPAIGN
         axios.get('http://localhost:5000/campaigns')
         .then(response => {
             if(response.data.length > 0) {
                 this.setState({
                 campaignList: response.data.map(campaignItem => campaignItem.cName),
-                //campaign: response.data[0].cName //displays campaign name of first in db
             })
             }
         })
     }
 
-    //UPDATING PROPS
+    //SET METHODS / UPDATING PROPS
     onChangeCampaign(e) {
         this.setState(
             {
@@ -77,18 +99,22 @@ export default class CreateSession extends Component {
             date: this.state.date
         }
 
-        console.log(session + " submitted");
+        if(this.props.location.pathname.substring(0,5) === "/edit") { //reads path to check if editing or creating.
+          axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
+              .then(res => console.log(res.data)); //promise that acknowledges submission
+            window.location = "/"; //takes back to homepage (sessionlist)
+        } else {
+          axios.post('http://localhost:5000/sessions/add', session)	
+              .then(res => console.log(res.data)); //promise that acknowledges submission	
+        }
 
-        axios.post('http://localhost:5000/sessions/add', session)
-            .then(res => console.log(res.data)); //promise that acknowledges submission
-
-        window.location = "/"; //takes back to homepage (sessionlist)
+        
     }
 
     render() {
         return (
-            <div>
-            <h3>Create New RPG Session</h3>
+            <div className="window">
+            <h3>Edit RPG Session</h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
                 <label>Campaign: </label>
@@ -136,7 +162,7 @@ export default class CreateSession extends Component {
               </div>
       
               <div className="form-group">
-                <input type="submit" value="Create Session Log" className="btn btn-primary" />
+                <input type="submit" className="btn btn-primary" />
               </div>
             </form>
           </div>

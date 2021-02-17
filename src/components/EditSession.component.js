@@ -3,8 +3,6 @@ import DatePicker from 'react-datepicker'
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
 
-//TODO: Combine with CreateSession? - Update Session
-
 export default class EditSession extends Component {
     constructor(props){
         super(props);
@@ -31,13 +29,14 @@ export default class EditSession extends Component {
         .then(response => {
           this.setState({
             campaign: response.data.campaign,
-            character: response.data.v,
-            sesLog: response.data.duration,
+            character: response.data.character,
+            sesLog: response.data.sesLog,
             date: new Date(response.data.date)
           })   
+          console.log(this.state.character);
         })
         .catch(function (error) {
-          console.log(error);
+          console.log("SESSION NOT SET " + error);
         })
 
         //SET CAMPAIGN
@@ -46,6 +45,7 @@ export default class EditSession extends Component {
             if(response.data.length > 0) {
                 this.setState({
                 campaignList: response.data.map(campaignItem => campaignItem.cName),
+                
             })
             }
         })
@@ -92,18 +92,19 @@ export default class EditSession extends Component {
             sesLog: this.state.sesLog,
             date: this.state.date
         }
-
-        console.log(session + " edited");
+        
+        console.log(session + " edited" + this.props.location.pathname.substring(0,5));
 
         axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
             .then(res => console.log(res.data)); //promise that acknowledges submission
-
+        
+            
         window.location = "/"; //takes back to homepage (sessionlist)
     }
 
     render() {
         return (
-            <div class="window">
+            <div className="window">
             <h3>Edit RPG Session</h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
