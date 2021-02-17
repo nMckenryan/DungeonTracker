@@ -3,8 +3,6 @@ import DatePicker from 'react-datepicker'
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
 
-//TODO: Combine with CreateSession? - Update Session
-
 export default class CompileSession extends Component {
     constructor(props){
         super(props);
@@ -110,12 +108,11 @@ export default class CompileSession extends Component {
           axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
               .then(res => console.log(res.data)); //promise that acknowledges submission
             window.location = "/"; //takes back to homepage (sessionlist)
-        } else {
+        } else if (this.props.location.pathname.substring(0,5) === "/crea") {
+          console.log(session);
           axios.post('http://localhost:5000/sessions/add', session)	
               .then(res => console.log(res.data)); //promise that acknowledges submission	
         }
-
-        
     }
 
     render() {
