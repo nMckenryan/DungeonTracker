@@ -6,8 +6,7 @@ import './custom.scss';
 
 import TopBar from "./components/topbar.component"
 import SessionList from "./components/SessionList.component";
-import EditSession from "./components/EditSession.component";
-import CreateSession from "./components/CreateSession.component";
+import CompileSession from "./components/CompileSession.component";
 import CreateCampaign from "./components/CreateCampaign.component";
 
 
@@ -20,8 +19,8 @@ function App() {
         <TopBar />
         <div className="main">
         <Route path="/" exact component={SessionList} />
-        <Route path="/edit/:id" component={EditSession} />
-        <Route path="/createSes" component={CreateSession} />
+        <Route path="/edit/:id" component={CompileSession} />
+        <Route path="/createSes" component={CompileSession} />
         <Route path="/createCamp" component={CreateCampaign} />
         </div>
       </Container>

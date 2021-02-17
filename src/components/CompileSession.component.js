@@ -15,7 +15,6 @@ export default class CompileSession extends Component {
         this.onChangeSeslog = this.onChangeSeslog.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.isEdit = this.isEdit.bind(this);
 
         this.state = {
             campaign: "",
@@ -46,15 +45,23 @@ export default class CompileSession extends Component {
         console.log(error);
       })
 
-        //SET CAMPAIGN
-        axios.get('http://localhost:5000/campaigns')
-        .then(response => {
-            if(response.data.length > 0) {
-                this.setState({
-                campaignList: response.data.map(campaignItem => campaignItem.cName),
-            })
-            }
-        })
+      //SET CAMPAIGN
+      axios.get('http://localhost:5000/campaigns')
+      .then(response => {
+          if(response.data.length > 0) {
+              this.setState({
+              campaignList: response.data.map(campaignItem => campaignItem.cName),
+          })
+          }
+      })
+
+      //CHECK FOR STATE. 
+      console.log(this.state.character + this.state.sesLog);
+
+      //SETS TO 'Edit Session' if variables found.
+      if(this.state.character === undefined && this.state.sesLog) {
+        this.setState({isEdit: true});
+      }
     }
 
     //SET METHODS / UPDATING PROPS
