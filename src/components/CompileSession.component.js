@@ -49,6 +49,7 @@ export default class CompileSession extends Component {
           if(response.data.length > 0) {
               this.setState({
               campaignList: response.data.map(campaignItem => campaignItem.cName),
+              campaign: response.data[0].cName //displays campaign name of first in db
           })
           }
       })
