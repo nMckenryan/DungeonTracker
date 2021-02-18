@@ -29,10 +29,9 @@ export default class CreateCampaign extends Component {
             cName: this.state.cName,
         }
 
-        console.log(cName + " submitted");
-
         axios.post('http://localhost:5000/campaigns/add', cName)
-            .then(res => console.log(res.data)); //promise that acknowledges submission
+            .then(res => console.log(res.data), //promise that acknowledges submission
+            console.log("ERROR: " + JSON.stringify(cName) + " exists")); //failstate, if campaign already exists.
 
         this.setState({
             cName: "" //resets User
@@ -41,23 +40,26 @@ export default class CreateCampaign extends Component {
 
     render() {
         return (
-            <div>
-            <h3>Create New Campaign</h3>
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group"> 
-                <label>Campaign Name: </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={this.state.cName}
-                    onChange={this.onChangeCampaign}
-                    />
-          </div>
-          <div className="form-group">
-            <input type="submit" value="Create User" className="btn btn-primary" />
-          </div>
-        </form>
-      </div>
+            <div className="activeWindow">
+                <h3>Create New Campaign</h3>
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group"> 
+                        <label>Campaign Name: </label>
+                        <input  type="text"
+                            required
+                            className="form-control"
+                            value={this.state.cName}
+                            onChange={this.onChangeCampaign}
+                            />
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        A simple warning alert—check it out!
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Submit" className="btn btn-primary" />
+                    </div>
+                </form>
+        </div>
     )
   }
 }

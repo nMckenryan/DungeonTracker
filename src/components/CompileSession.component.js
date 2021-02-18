@@ -20,7 +20,6 @@ export default class CompileSession extends Component {
             sesLog: "",
             date: new Date(),
             campaignList: [],
-            isEdit: false
         }
     }
 
@@ -57,10 +56,6 @@ export default class CompileSession extends Component {
       //CHECK FOR STATE. 
       console.log(this.state.character + this.state.sesLog);
 
-      //SETS TO 'Edit Session' if variables found.
-      if(this.state.character === undefined && this.state.sesLog) {
-        this.setState({isEdit: true});
-      }
     }
 
     //SET METHODS / UPDATING PROPS
@@ -118,7 +113,7 @@ export default class CompileSession extends Component {
 
     render() {
         return (
-            <div className="window">
+          <div className="activeWindow">
             <h3>Edit RPG Session</h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
@@ -150,6 +145,7 @@ export default class CompileSession extends Component {
               <div className="form-group">
                 <label>Session Log</label>
                 <input 
+                    required
                     type="text" 
                     className="form-control"
                     value={this.state.sesLog}
@@ -160,6 +156,7 @@ export default class CompileSession extends Component {
                 <label>Date: </label>
                 <div>
                   <DatePicker
+                    required
                     selected={this.state.date}
                     onChange={this.onChangeDate}
                   />
