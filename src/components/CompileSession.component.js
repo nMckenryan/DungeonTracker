@@ -20,29 +20,31 @@ export default class CompileSession extends Component {
             sesLog: "",
             date: new Date(),
             campaignList: [],
+            editCheck: "" //Can be either 'Edit' or 'Create'. 'Edit' sets methods + UI to 'edit mode', and vice versa.
         }
     }
 
     componentDidMount() { //get and display campaign list
+      //GET SESSION DATA (if editting)
+      if(this.props.location.pathname.substring(0,5) === "/edit") { 
+        this.setState({editCheck: "Edit"});
+        axios.get('http://localhost:5000/sessions/'+this.props.match.params.id)
+        .then(response => {
+          this.setState({
+            campaign: response.data.campaign,
+            character: response.data.character,
+            sesLog: response.data.sesLog,
+            date: new Date(response.data.date)
+          })   
+        })
+        .catch(function (error) {
+          console.log("ERROR: " + error);
+        })
+      } else {
+        this.setState({editCheck: "Create"});
+      }
 
-      //TODO: CHECK IF character VARIABLE SET. 
-
-      //SET SESSION
-      axios.get('http://localhost:5000/sessions/'+this.props.match.params.id)
-      .then(response => {
-        this.setState({
-          campaign: response.data.campaign,
-          character: response.data.character,
-          sesLog: response.data.sesLog,
-          date: new Date(response.data.date)
-        })   
-        console.log(this.state.character);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-
-      //SET CAMPAIGN
+      //GET CAMPAIGN
       axios.get('http://localhost:5000/campaigns')
       .then(response => {
           if(response.data.length > 0) {
@@ -52,17 +54,13 @@ export default class CompileSession extends Component {
           })
           }
       })
-
-      //CHECK FOR STATE. 
-      console.log(this.state.character + this.state.sesLog);
-
     }
 
     //SET METHODS / UPDATING PROPS
     onChangeCampaign(e) {
         this.setState(
             {
-                campaign: e.target.value
+              campaign: e.target.value
             }
         );
     }
@@ -70,7 +68,7 @@ export default class CompileSession extends Component {
     onChangeCharacter(e) {
         this.setState(
             {
-                character: e.target.value
+              character: e.target.value
             }
         );
     }
@@ -100,21 +98,24 @@ export default class CompileSession extends Component {
             date: this.state.date
         }
 
-        if(this.props.location.pathname.substring(0,5) === "/edit") { //reads path to check if editing or creating.
+        if(this.state.editCheck === "Edit") { //reads path to check if editing or creating.
           axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
-              .then(res => console.log(res.data)); //promise that acknowledges submission
+              .then(res => console.log(res.data), //promise that acknowledges submission
+              console.log("SESSION SUBMIT ERROR: UPDATE FAIL"))
             window.location = "/"; //takes back to homepage (sessionlist)
-        } else if (this.props.location.pathname.substring(0,5) === "/crea") {
+        } else if (this.state.editCheck === "Create") {
           console.log(session);
           axios.post('http://localhost:5000/sessions/add', session)	
               .then(res => console.log(res.data)); //promise that acknowledges submission	
+        } else {
+          console.log("ERROR: Neither Edit nor Add.");
         }
     }
 
     render() {
         return (
           <div className="activeWindow">
-            <h3>Edit RPG Session</h3>
+            <h3>{this.state.editCheck} RPG Session</h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
                 <label>Campaign: </label>
