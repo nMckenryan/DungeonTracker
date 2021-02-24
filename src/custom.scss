@@ -3,8 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500&display=swap");
 
-$mainFont: antiquewhite;
-
 $cork: #947a4a;
 $torchLight: #8b7346;
 $wall: #727272;
@@ -13,7 +11,6 @@ $steel: #969696;
 html,
 body {
   background: linear-gradient($torchLight 5%, $wall 10%, black);
-  color: $mainFont;
   width: 100%;
   height: 100%;
 
@@ -28,6 +25,7 @@ body {
 
   tbody {
     font-family: "Kalam", cursive;
+    color: white;
   }
 }
 
