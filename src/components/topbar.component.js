@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from 'react-bootstrap/Nav'
 
 export default class TopBar extends Component {
-
+  // Handles the Top Nav Bar.
   render() {
     return (
       <Nav fill variant="tabs" defaultActiveKey="/home">

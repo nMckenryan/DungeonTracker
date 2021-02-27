@@ -24,7 +24,7 @@ export default class CompileSession extends Component {
         }
     }
 
-    componentDidMount() { //get and display campaign list
+    componentDidMount() {
       //GET SESSION DATA (if editting)
       if(this.props.location.pathname.substring(0,5) === "/edit") { 
         this.setState({editCheck: "Edit"});
@@ -100,13 +100,13 @@ export default class CompileSession extends Component {
 
         if(this.state.editCheck === "Edit") { //reads path to check if editing or creating.
           axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
-              .then(res => console.log(res.data), //promise that acknowledges submission
-              console.log("SESSION SUBMIT ERROR: UPDATE FAIL"))
+              .then(res => console.log(res.data)); //promise that acknowledges submission
             window.location = "/"; //takes back to homepage (sessionlist)
         } else if (this.state.editCheck === "Create") {
           console.log(session);
           axios.post('http://localhost:5000/sessions/add', session)	
-              .then(res => console.log(res.data)); //promise that acknowledges submission	
+              .then(res => console.log(res.data));
+          window.location = "/";
         } else {
           console.log("ERROR: Neither Edit nor Add.");
         }
