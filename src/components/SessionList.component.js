@@ -18,7 +18,6 @@ const Session = props => (
   )
 
 export default class SessionList extends Component {
-
     constructor(props){
         super(props);
         this.deleteSession = this.deleteSession.bind(this);
@@ -38,10 +37,10 @@ export default class SessionList extends Component {
     //DELETE SESSION
     deleteSession(id) {
         axios.delete('http://localhost:5000/sessions/' + id)
-            .then(res => console.log(res.data));
-
-        this.setState({ //updates page state upon deletion.
-            exercises: this.state.session.filter(el => el._id !== id)
+            .then(res => console.log(res.data))
+        //updates page state upon deletion.
+        this.setState({ 
+            sessions: this.state.sessions.filter(el => el._id !== id)
         })
     }
 

@@ -9,7 +9,6 @@ import SessionList from "./components/SessionList.component";
 import CompileSession from "./components/CompileSession.component";
 import CreateCampaign from "./components/CreateCampaign.component";
 
-
 function App() {
   return (
     <Router>
@@ -22,7 +21,7 @@ function App() {
         <Route path="/edit/:id" component={CompileSession} />
         <Route path="/createSes" component={CompileSession} />
         <Route path="/createCamp" component={CreateCampaign} />
-        </div>
+        </div> 
       </Container>
     </Router>
   );
