@@ -32,7 +32,9 @@ export default class CreateCampaign extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        axios.get('http://localhost:5000/campaigns')
+        //CAMPLIST NOT SETTING
+
+        axios.get('http://localhost:5000/campaigns') 
         .then(response => {
             if(response.data.length > 0) {
                 this.setState({
@@ -41,7 +43,7 @@ export default class CreateCampaign extends Component {
             })
             }
         }, console.log("ERROR RETRIEVING CAMPLIST"))
-        
+
         console.log(this.state.campaignList);
         const cName = this.state.cName;
         this.state.campaignList.filter(function(name) {
