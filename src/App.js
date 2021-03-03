@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import './custom.scss';
 
-import TopBar from "./components/topbar.component"
+import TopBar from "./components/TopBar.component"
 import SessionList from "./components/SessionList.component";
 import CompileSession from "./components/CompileSession.component";
 import CreateCampaign from "./components/CreateCampaign.component";
