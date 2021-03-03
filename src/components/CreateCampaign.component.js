@@ -11,9 +11,15 @@ export default class CreateCampaign extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            cName: ""
+            cName: "",
+            campaignList: []
         }
     }
+
+    // componentDidMount() {   
+    // //GET CAMPAIGN
+        
+    // }
 
     onChangeCampaign(e) {
         this.setState(
@@ -25,22 +31,34 @@ export default class CreateCampaign extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const cName = {
-            cName: this.state.cName,
-        }
+
+        axios.get('http://localhost:5000/campaigns')
+        .then(response => {
+            if(response.data.length > 0) {
+                this.setState({
+                campaignList: response.data.map(campaignItem => campaignItem.cName),
+                //campaign: response.data[0].cName //displays campaign name of first in db
+            })
+            }
+        }, console.log("ERROR RETRIEVING CAMPLIST"))
+        
+        console.log(this.state.campaignList);
+        const cName = this.state.cName;
+        this.state.campaignList.filter(function(name) {
+            return name !== cName;
+        })
+
+        console.log(this.state.campaignList);
+
 
         //Input Validation
-        axios.get('http://localhost:5000/campaigns?cName=', cName)
-            .then(function() {
-                this.res = this.res.filter(re => re.cName === this.state.cName);;
-                if(this.res >= 0) {
-                    console.log("fail");
-                }
-            });
-            }
-
-            // axios.post('http://localhost:5000/campaigns/add', cName)
-            // .then(res => console.log("Status" + res.data) //promise that acknowledges submission
+        if(this.state.campaignList === null){
+            axios.post('http://localhost:5000/campaigns/add', cName)
+            .then(res => console.log("Status" + res.data)) //promise that acknowledges submission 
+        } else {
+            console.log("exists");
+        }
+    }
 
             
                 // if(cName == campaign.name) {
