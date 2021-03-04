@@ -16,10 +16,15 @@ export default class CreateCampaign extends Component {
         }
     }
 
-    // componentDidMount() {   
+    componentDidMount() {   
     // //GET CAMPAIGN
-        
-    // }
+    axios.get('http://localhost:5000/campaigns') 
+        .then(response => {
+            if(response.data.length > 0) {
+                this.setState({campaignList: response.data.map(campaignItem => campaignItem.cName)})
+            }
+        })
+    }
 
     onChangeCampaign(e) {
         this.setState(
@@ -32,44 +37,22 @@ export default class CreateCampaign extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        //CAMPLIST NOT SETTING
-
-        axios.get('http://localhost:5000/campaigns') 
-        .then(response => {
-            if(response.data.length > 0) {
-                this.setState({
-                campaignList: response.data.map(campaignItem => campaignItem.cName),
-                //campaign: response.data[0].cName //displays campaign name of first in db
-            })
-            }
-        }, console.log("ERROR RETRIEVING CAMPLIST"))
-
-        console.log(this.state.campaignList);
         const cName = this.state.cName;
-        this.state.campaignList.filter(function(name) {
-            return name !== cName;
+        let campList = this.state.campaignList.filter(function(name) {
+            return name === cName;
         })
 
-        console.log(this.state.campaignList);
+        console.log("CName" + cName + "CAMPFILTER: " + campList);
 
 
         //Input Validation
-        if(this.state.campaignList === null){
-            axios.post('http://localhost:5000/campaigns/add', cName)
-            .then(res => console.log("Status" + res.data)) //promise that acknowledges submission 
+        if(campList.length === 0){
+            axios.post('http://localhost:5000/campaigns/add', this.state.cName)
+            .then(res => console.log("Status" + res.data)) //promise that acknowledges submission
         } else {
-            console.log("exists");
+            console.log("exists"); //RUN TOAST LOG
         }
     }
-
-            
-                // if(cName == campaign.name) {
-                //     ToastAlert("CAMPAIGN ERROR", cName + " already Exists"); //failstate, if campaign already exists.
-                // } else {
-                //     axios.post('http://localhost:5000/campaigns/add', cName)
-                //     .then(res => console.log("Status" + res.data) //promise that acknowledges submission
-                // } 
-                // )
 
 
     render() {
