@@ -100,12 +100,18 @@ export default class CompileSession extends Component {
 
         if(this.state.editCheck === "Edit") { //reads path to check if editing or creating.
           axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
-              .then(res => console.log(res.data)); //promise that acknowledges submission
+              .then(res => console.log(res.data)) //promise that acknowledges submission
+              .catch(err => {
+                console.log(err)
+            })
             window.location = "/"; //takes back to homepage (sessionlist)
         } else if (this.state.editCheck === "Create") {
           console.log(session);
           axios.post('http://localhost:5000/sessions/add', session)	
-              .then(res => console.log(res.data));
+              .then(res => console.log(res.data))
+              .catch(err => {
+                console.log(err)
+            })
           window.location = "/";
         } else {
           console.log("ERROR: Neither Edit nor Add.");

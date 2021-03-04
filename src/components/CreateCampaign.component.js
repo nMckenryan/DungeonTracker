@@ -42,13 +42,14 @@ export default class CreateCampaign extends Component {
             return name === cName;
         })
 
-        console.log("CName" + cName + "CAMPFILTER: " + campList);
-
 
         //Input Validation
         if(campList.length === 0){
             axios.post('http://localhost:5000/campaigns/add', this.state.cName)
-            .then(res => console.log("Status" + res.data)) //promise that acknowledges submission
+            .then(res => console.log("Status" + res.data)) 
+            .catch(err => {
+                console.log(err)
+            })
         } else {
             console.log("exists"); //RUN TOAST LOG
         }
