@@ -37,15 +37,18 @@ export default class CreateCampaign extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const cName = this.state.cName;
+        const cName = {
+            cName: this.state.cName,
+        }
+
         let campList = this.state.campaignList.filter(function(name) {
-            return name === cName;
+            return name === cName.cName;
         })
 
 
         //Input Validation
         if(campList.length === 0){
-            axios.post('http://localhost:5000/campaigns/add', this.state.cName)
+            axios.post('http://localhost:5000/campaigns/add', cName)
             .then(res => console.log("Status" + res.data)) 
             .catch(err => {
                 console.log(err)
