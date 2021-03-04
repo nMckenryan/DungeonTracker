@@ -1,3 +1,23 @@
+RPG TRACKER: A Tracker for Tabletop RPG Games.
+
+Instructions: 
+
+1. Create a Campaign, if you haven't already
+2. Create a Session, the Campaign you generated should appear on the Session Creation Screen.
+3. Write the Log in your Session, and Submit
+4. Done! Track future sessions (across campaigns) with this app! 
+
+Made using:
+
+- MongoDB & Axios
+- ReactJS
+- Bootstrap (Via React-Bootstrap)
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
