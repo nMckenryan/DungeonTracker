@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import ToastAlert from './ToastAlert';
+import ToastAlert from './ToastAlert'
 
 export default class CreateCampaign extends Component {
 
@@ -34,6 +34,7 @@ export default class CreateCampaign extends Component {
         );
     }
 
+    //SUBMITTING CAMPAIGN
     onSubmit(e) {
         e.preventDefault();
 
@@ -49,13 +50,15 @@ export default class CreateCampaign extends Component {
         //Input Validation
         if(campList.length === 0){
             axios.post('http://localhost:5000/campaigns/add', cName)
-            .then(res => console.log("Status" + res.data)) 
+            .then(res => ToastAlert())
             .catch(err => {
                 console.log(err)
             })
+            window.location = "/createSes" //Go to create Session page))      
         } else {
-            console.log("exists"); //RUN TOAST LOG
+            ToastAlert("Wow so easy!"); //RUN TOAST LOG
         }
+        
     }
 
 

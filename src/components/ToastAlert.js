@@ -1,18 +1,17 @@
 import React from 'react';
-import Toast from 'react-bootstrap/Toast';
 
-const ToastAlert = props => {
-    
-    return (
-        <Toast>
-        <Toast.Header>
-            <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-            <strong className="mr-auto">{props.title}</strong>
-        </Toast.Header>
-        <Toast.Body>{props.message}</Toast.Body>
-        </Toast>
-    )
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
+function ToastAlert(){
+  const notify = () => toast("Wow so easy!");
+
+  return (
+    <div>
+      <button onClick={notify}>Notify!</button>
+      <ToastContainer />
+    </div>
+  );
 }
 
-export default ToastAlert;
-
+export default ToastAlert
