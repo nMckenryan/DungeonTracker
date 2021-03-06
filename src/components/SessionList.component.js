@@ -36,6 +36,8 @@ export default class SessionList extends Component {
 
     //DELETE SESSION
     deleteSession(id) {
+
+      
         axios.delete('http://localhost:5000/sessions/' + id)
             .then(res => console.log(res.data))
         //updates page state upon deletion.
@@ -52,8 +54,7 @@ export default class SessionList extends Component {
 
     render() {
         return (
-          <div className="mainCont">
-            <Table className="table">
+            <Table>
               <thead className="thead-light">
                 <tr>
                   <th>Campaign</th>
@@ -67,7 +68,6 @@ export default class SessionList extends Component {
                 { this.sessionList() }
               </tbody>
             </Table>
-          </div>
         )
       }
     }

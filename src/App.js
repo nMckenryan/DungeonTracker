@@ -15,8 +15,9 @@ function App() {
       <Container>
         <br/>
         <h1>Dungeon Tracker</h1>
+        <br/>
         <TopBar />
-        <div className="main">
+        <div className="mainSection">
         <Route path="/" exact component={SessionList} />
         <Route path="/edit/:id" component={CompileSession} />
         <Route path="/createSes" component={CompileSession} />
