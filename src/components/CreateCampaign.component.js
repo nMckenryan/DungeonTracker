@@ -38,8 +38,6 @@ export default class CreateCampaign extends Component {
     //SUBMITTING CAMPAIGN
     onSubmit(e) {
         e.preventDefault();
-
-        const MySwal = withReactContent(Swal);
         const cName = { cName: this.state.cName }
         let campList = this.state.campaignList.filter(function(name) {
             return name === cName.cName;
@@ -52,11 +50,11 @@ export default class CreateCampaign extends Component {
             .catch(err => {
                 console.log(err)
             })
-            MySwal.fire('Campaign Created! Let\'s go create a session.')
+            Swal.fire('Campaign Created! Let\'s go create a session.')
             setTimeout(function(){
                 window.location = "/createSes"}, 2000);//Go to create Session page after 2 seconds
         } else {
-            MySwal.fire("Campaign Already Exists. Please try again");
+            Swal.fire("Campaign Already Exists. Please try again");
         }
     }
 
@@ -75,7 +73,7 @@ export default class CreateCampaign extends Component {
                             onChange={this.onChangeCampaign}
                             />
                             <br/>
-                        <input type="submit" value="Submit" className="btn btn-primary" />
+                        <input type="submit" value="Submit" className="btn" />
                     </div>
                 </form>
                 <br/>

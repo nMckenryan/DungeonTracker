@@ -4,18 +4,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500&display=swap");
 
 $cork: #947a4a;
-$torchLight: #8b7346;
+$torchlight: #a88b55;
+$flame: #ff8757;
+$brass: #5a2a02;
 $wall: #727272;
-$leather: rgba(88, 54, 54, 0.705);
+$leather: #754747b4;
 $steel: #969696;
 
 html,
 body {
-  background: linear-gradient($torchLight 6%, $wall 10%, black);
+  background: linear-gradient(
+    rgb(22, 22, 22) 0.1%,
+    $wall 70%,
+    $torchlight 90%,
+    $flame 100%
+  );
   width: 100%;
   height: 100%;
 
   h1 {
+    color: $steel;
     font-family: "Cinzel", serif;
     text-shadow: 2px 2px maroon;
   }
@@ -23,31 +31,50 @@ body {
   h3 {
     font-family: "Cinzel", serif;
   }
-}
 
-h6 {
-  font-weight: bold;
-}
-
-.mainSection {
-  background-color: $cork;
-  font-family: "Cormorant", serif;
-
-  tbody {
-    font-family: "Kalam", cursive;
-    color: white;
+  h6 {
+    font-weight: bold;
   }
-}
 
-.activeWindow {
-  padding-left: 5px;
-}
+  .mainSection {
+    background-color: $leather;
+    font-family: "Cormorant", serif;
+    border-radius: 0.5rem;
 
-a {
-  background-color: $steel;
-  color: #fff;
-  font-family: "Cormorant", serif;
-}
-a:hover {
-  color: maroon;
+    tbody {
+      font-family: "Kalam", cursive;
+      color: rgba(0, 0, 0, 0.856);
+      background-color: $cork;
+    }
+
+    thead {
+      background-color: $leather;
+      color: antiquewhite;
+    }
+
+    td button {
+      font-family: "Cormorant", serif;
+      background-color: steel;
+    }
+  }
+
+  .activeWindow {
+    padding-left: 10px;
+    color: antiquewhite;
+
+    .btn {
+      color: black;
+      font-weight: bold;
+      background-color: $cork;
+    }
+  }
+
+  a {
+    background-color: $brass;
+    color: #fff;
+    font-family: "Cormorant", serif;
+  }
+  a:hover {
+    color: red;
+  }
 }

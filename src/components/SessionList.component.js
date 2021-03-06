@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import '../custom.scss';
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 //SESSION FUNC COMPONENT FOR DISPLAYING INDIVIDUAL FIELDS
 const Session = props => (
@@ -14,7 +13,7 @@ const Session = props => (
       <td>{props.session.character}</td>
       <td>{props.session.sesLog}</td>
       <td>
-        <Link to={"/edit/"+props.session._id}><button>Edit</button></Link> | <button href="#" onClick={() => { props.deleteSession(props.session._id) }}>delete</button>
+        <Link to={"/edit/"+props.session._id}><button>Edit</button></Link> <button href="#" onClick={() => { props.deleteSession(props.session._id) }}>Delete</button>
       </td>
     </tr>
   )
@@ -38,9 +37,6 @@ export default class SessionList extends Component {
 
     //DELETE SESSION
     deleteSession(id) {
-      
-      const MySwal = withReactContent(Swal)
-
       Swal.fire({
         title: 'Are you sure your want to delete this session?',
         showCancelButton: true,
@@ -56,13 +52,9 @@ export default class SessionList extends Component {
         })
         } 
       })
-      
-
     }
 
     sessionList() {
-
-
         return this.state.sessions.map(currentsession => {
             return <Session session={currentsession} deleteSession={this.deleteSession}key={currentsession._id}/>;
         })
@@ -71,7 +63,7 @@ export default class SessionList extends Component {
     render() {
         return (
             <Table>
-              <thead className="thead-light">
+              <thead>
                 <tr>
                   <th>Campaign</th>
                   <th>Date</th>

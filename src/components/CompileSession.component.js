@@ -3,7 +3,6 @@ import DatePicker from 'react-datepicker'
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 export default class CompileSession extends Component {
     constructor(props){
@@ -191,7 +190,7 @@ export default class CompileSession extends Component {
               </div>
     
               <div className="form-group">
-                <input type="submit" className="btn btn-primary" />
+                <input type="submit" className="btn" />
               </div>
             </form>
             <br/>
