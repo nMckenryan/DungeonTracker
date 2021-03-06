@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default class CreateCampaign extends Component {
 
@@ -9,7 +10,7 @@ export default class CreateCampaign extends Component {
         //BINDING this TO CLASS. V IMPORTANT!!!
         this.onChangeCampaign = this.onChangeCampaign.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
+        
         this.state = {
             cName: "",
             campaignList: []
@@ -38,14 +39,11 @@ export default class CreateCampaign extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const cName = {
-            cName: this.state.cName,
-        }
-
+        const MySwal = withReactContent(Swal);
+        const cName = { cName: this.state.cName }
         let campList = this.state.campaignList.filter(function(name) {
             return name === cName.cName;
         })
-
 
         //Input Validation
         if(campList.length === 0){
@@ -54,33 +52,33 @@ export default class CreateCampaign extends Component {
             .catch(err => {
                 console.log(err)
             })
-            toast('Campaign Created! Let\'s go create a session.')
+            MySwal.fire('Campaign Created! Let\'s go create a session.')
             setTimeout(function(){
                 window.location = "/createSes"}, 2000);//Go to create Session page after 2 seconds
         } else {
-            toast("Campaign Already Exists. Please try again");
+            MySwal.fire("Campaign Already Exists. Please try again");
         }
     }
 
     render() {
         return (
             <div className="activeWindow">
-            <ToastContainer autoClose={2000}/>
                 <h3>Create New Campaign</h3>
+                <br/>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
-                        <label>Campaign Name: </label>
+                        <h6>Campaign Name: </h6>
                         <input  type="text"
                             required
                             className="form-control"
                             value={this.state.cName}
                             onChange={this.onChangeCampaign}
                             />
-                    </div>
-                    <div className="form-group">
+                            <br/>
                         <input type="submit" value="Submit" className="btn btn-primary" />
                     </div>
                 </form>
+                <br/>
         </div>
     )
   }

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default class CompileSession extends Component {
     constructor(props){
@@ -90,6 +92,17 @@ export default class CompileSession extends Component {
     }
 
     onSubmit(e) {
+      //Declares toast confirmations
+      const Toast = Swal.mixin({
+        toast: true,
+        showConfirmButton: false,
+        timer: 3000,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
         e.preventDefault();
         const session = {
             campaign: this.state.campaign,
@@ -104,7 +117,10 @@ export default class CompileSession extends Component {
               .catch(err => {
                 console.log(err)
             })
-            window.location = "/"; //takes back to homepage (sessionlist)
+            Toast.fire({
+              icon: 'info',
+              title: 'Session Edited!'
+            });
         } else if (this.state.editCheck === "Create") {
           console.log(session);
           axios.post('http://localhost:5000/sessions/add', session)	
@@ -112,19 +128,23 @@ export default class CompileSession extends Component {
               .catch(err => {
                 console.log(err)
             })
-          window.location = "/";
-        } else {
-          console.log("ERROR: Neither Edit nor Add.");
+            Toast.fire({
+              icon: 'success',
+              title: 'Session Added!'
+            });
         }
+        setTimeout(function(){
+          window.location = "/"}, 2000);//Go to create Session page after 2 seconds
     }
 
     render() {
         return (
           <div className="activeWindow">
             <h3>{this.state.editCheck} RPG Session</h3>
+            <br/>
             <form onSubmit={this.onSubmit}>
               <div className="form-group"> 
-                <label>Campaign: </label>
+                <h6>Campaign: </h6>
                 <select 
                     required
                     className="form-control"
@@ -141,7 +161,7 @@ export default class CompileSession extends Component {
                 </select>
               </div>
               <div className="form-group"> 
-                <label>Character: </label>
+                <h6>Character: </h6>
                 <input  type="text"
                     required
                     className="form-control"
@@ -150,7 +170,7 @@ export default class CompileSession extends Component {
                     />
               </div>
               <div className="form-group">
-                <label>Session Log</label>
+                <h6>Session Log</h6>
                 <input 
                     required
                     type="text" 
@@ -160,7 +180,7 @@ export default class CompileSession extends Component {
                     />
               </div>
               <div className="form-group">
-                <label>Date: </label>
+                <h6>Date: </h6>
                 <div>
                   <DatePicker
                     required
@@ -169,12 +189,14 @@ export default class CompileSession extends Component {
                   />
                 </div>
               </div>
-      
+    
               <div className="form-group">
                 <input type="submit" className="btn btn-primary" />
               </div>
             </form>
+            <br/>
           </div>
+          
         )
     }
 }

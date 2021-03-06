@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import '../custom.scss';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 //SESSION FUNC COMPONENT FOR DISPLAYING INDIVIDUAL FIELDS
 const Session = props => (
@@ -36,17 +38,31 @@ export default class SessionList extends Component {
 
     //DELETE SESSION
     deleteSession(id) {
-
       
-        axios.delete('http://localhost:5000/sessions/' + id)
-            .then(res => console.log(res.data))
+      const MySwal = withReactContent(Swal)
+
+      Swal.fire({
+        title: 'Are you sure your want to delete this session?',
+        showCancelButton: true,
+        confirmButtonText: `Delete`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          axios.delete('http://localhost:5000/sessions/' + id)
+          .then(res => console.log(res.data))
         //updates page state upon deletion.
         this.setState({ 
             sessions: this.state.sessions.filter(el => el._id !== id)
         })
+        } 
+      })
+      
+
     }
 
     sessionList() {
+
+
         return this.state.sessions.map(currentsession => {
             return <Session session={currentsession} deleteSession={this.deleteSession}key={currentsession._id}/>;
         })
