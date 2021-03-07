@@ -10,6 +10,7 @@
 Made using:
 - ReactJS
 - MongoDB & Axios
+- Sass
 - Bootstrap
 - SweetAlert 2
 
