@@ -23,6 +23,7 @@ function App() {
         <Route path="/createSes" component={CompileSession} />
         <Route path="/createCamp" component={CreateCampaign} />
         </div> 
+        <footer><small>Built by Nigel Mckenzie-Ryan (github.com/nMckenryan)</small></footer>
       </Container>
     </Router>
   );

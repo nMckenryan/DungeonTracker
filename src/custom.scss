@@ -3,24 +3,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@500&display=swap");
 
-$cork: #947a4a;
-$torchlight: #a88b55;
 $flame: #ff8757;
-$brass: #5a2a02;
-$wall: #727272;
-$leather: #754747b4;
+$torchlight: #a88b55;
+$cork: #a58852;
 $steel: #969696;
+$leather: #754747b4;
+$brass: #5a2a02;
 
 html,
 body {
   background: linear-gradient(
     rgb(22, 22, 22) 0.1%,
-    $wall 70%,
+    #727272 70%,
     $torchlight 90%,
     $flame 100%
   );
-  width: 100%;
+
   height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  font-family: "Cormorant", serif;
 
   h1 {
     color: $steel;
@@ -40,9 +43,11 @@ body {
     background-color: $leather;
     font-family: "Cormorant", serif;
     border-radius: 0.5rem;
+    border: 0.05rem solid transparent;
 
     tbody {
       font-family: "Kalam", cursive;
+      font-weight: bold;
       color: rgba(0, 0, 0, 0.856);
       background-color: $cork;
     }
@@ -54,7 +59,8 @@ body {
 
     td button {
       font-family: "Cormorant", serif;
-      background-color: steel;
+      background-color: $leather;
+      color: rgb(177, 164, 147);
     }
   }
 
@@ -63,18 +69,24 @@ body {
     color: antiquewhite;
 
     .btn {
+      background-color: $cork;
       color: black;
       font-weight: bold;
-      background-color: $cork;
     }
   }
 
   a {
     background-color: $brass;
     color: #fff;
-    font-family: "Cormorant", serif;
   }
   a:hover {
     color: red;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; /* Footer height */
   }
 }
