@@ -170,8 +170,10 @@ export default class CompileSession extends Component {
               </div>
               <div className="form-group">
                 <h6>Session Log</h6>
-                <input 
+                <textarea 
                     required
+                    rows="4" 
+                    cols="50"
                     type="text" 
                     className="form-control"
                     value={this.state.sesLog}
