@@ -26,10 +26,12 @@ export default class CompileSession extends Component {
     }
 
     componentDidMount() {
+
+
       //GET SESSION DATA (if editting)
       if(this.props.location.pathname.substring(0,5) === "/edit") { 
         this.setState({editCheck: "Edit"});
-        axios.get('http://localhost:5000/sessions/'+this.props.match.params.id)
+        axios.get('/api/sessions/'+this.props.match.params.id)
         .then(response => {
           this.setState({
             campaign: response.data.campaign,
@@ -46,7 +48,7 @@ export default class CompileSession extends Component {
       }
 
       //GET CAMPAIGN
-      axios.get('http://localhost:5000/campaigns')
+      axios.get('/api/campaigns')
       .then(response => {
           if(response.data.length > 0) {
               this.setState({
@@ -111,7 +113,7 @@ export default class CompileSession extends Component {
         }
 
         if(this.state.editCheck === "Edit") { //reads path to check if editing or creating.
-          axios.post('http://localhost:5000/sessions/update/'+this.props.match.params.id, session)
+          axios.post('/api/sessions/update/'+this.props.match.params.id, session)
               .then(res => console.log(res.data)) //promise that acknowledges submission
               .catch(err => {
                 console.log(err)
@@ -122,7 +124,7 @@ export default class CompileSession extends Component {
             });
         } else if (this.state.editCheck === "Create") {
           console.log(session);
-          axios.post('http://localhost:5000/sessions/add', session)	
+          axios.post('/api/sessions/add', session)	
               .then(res => console.log(res.data))
               .catch(err => {
                 console.log(err)
