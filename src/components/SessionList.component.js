@@ -5,7 +5,11 @@ import Table from 'react-bootstrap/Table';
 import '../custom.scss';
 import Swal from 'sweetalert2'
 
+<<<<<<< HEAD
 //SESSION FUNC COMPONENT FOR DISPLAYING INDIVIDUAL FIELDS test
+=======
+//SESSION FUNC COMPONENT FOR DISPLAYING INDIVIDUAL FIELDS TEST TEST
+>>>>>>> 1f5f185f0f28c17884a78015f422540a8cc46088
 const Session = props => (
     <tr>
       <td>{props.session.campaign}</td>
