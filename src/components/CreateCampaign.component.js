@@ -18,7 +18,7 @@ export default class CreateCampaign extends Component {
 
     componentDidMount() {   
     // //GET CAMPAIGN
-    axios.get('/api/campaigns') 
+    axios.get('http://localhost:5000/campaigns') 
         .then(response => {
             if(response.data.length > 0) {
                 this.setState({campaignList: response.data.map(campaignItem => campaignItem.cName)})
@@ -44,7 +44,7 @@ export default class CreateCampaign extends Component {
 
         //Input Validation
         if(campList.length === 0){
-            axios.post('/api/campaigns/add', cName)
+            axios.post('http://localhost:5000/campaigns/add', cName)
             .then(res => console.log(res))
             .catch(err => {
                 console.log(err)
