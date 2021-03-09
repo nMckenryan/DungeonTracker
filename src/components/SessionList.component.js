@@ -26,7 +26,7 @@ export default class SessionList extends Component {
     }
 
     componentDidMount() { //adds list of exercises to state before page gen
-        axios.get('http://localhost:5000/sessions/')
+        axios.get('https://dungeontrackerrpg.herokuapp.com/sessions/')
         .then(response => { 
             this.setState({ sessions: response.data }); //gets all fields in sessions
         })
@@ -44,7 +44,7 @@ export default class SessionList extends Component {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          axios.delete('http://localhost:5000/sessions/' + id)
+          axios.delete('https://dungeontrackerrpg.herokuapp.com/sessions/' + id)
           .then(res => console.log(res.data))
         //updates page state upon deletion.
         this.setState({ 

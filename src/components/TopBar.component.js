@@ -19,3 +19,5 @@ export default class TopBar extends Component {
     );
   }
 }
+
+heroku config:set MONGODB_URI="mongodb+srv://m001-student:<password>@sandbox.akxqo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
