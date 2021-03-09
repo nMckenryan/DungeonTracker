@@ -9,7 +9,7 @@
 
 Made using:
 - ReactJS
-- MongoDB & Axios
+- MongoDB via Express & Axios
 - Sass
 - Bootstrap
 - SweetAlert 2
