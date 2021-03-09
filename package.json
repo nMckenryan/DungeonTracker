@@ -51,8 +51,6 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-<<<<<<< HEAD
-<<<<<<< HEAD
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -69,10 +67,4 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-pwa-manifest": "^4.3.0"
   }
-=======
-  "license": "ISC"
->>>>>>> parent of 1f98b94 (another test)
-=======
-  "license": "ISC"
->>>>>>> parent of e78e73b (Merge branch 'master' of https://github.com/nMckenryan/rpgtracker)
 }
