@@ -1,71 +1,55 @@
 {
-    "name": "rpgtracker",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-      "@testing-library/jest-dom": "^5.11.6",
-      "@testing-library/react": "^11.2.2",
-      "@testing-library/user-event": "^12.6.0",
-      "axios": "^0.21.1",
-      "bootstrap": "^4.6.0",
-      "heroku": "^7.50.0",
-      "node-sass": "^4.14.1",
-      "react": "^17.0.1",
-      "react-bootstrap": "^1.4.3",
-      "react-datepicker": "^3.4.1",
-      "react-dom": "^17.0.1",
-      "react-router-dom": "^5.2.0",
-      "react-scripts": "4.0.1",
-      "sweetalert2": "^10.15.5",
-      "sweetalert2-react-content": "^3.3.1",
-      "web-vitals": "^0.2.4"
-    },
-    "engines": {
-      "node": "10.15.x"
-    },
-    "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-      "extends": [
-        "react-app",
-        "react-app/jest"
-      ]
-    },
-    "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
-      ],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
-    },
-    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-    "main": "index.js",
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/nMckenryan/rpgtracker.git"
-    },
-    "bugs": {
-      "url": "https://github.com/nMckenryan/rpgtracker/issues"
-    },
-    "homepage": "/",
-    "devDependencies": {
-      "favicons-webpack-plugin": "^5.0.2",
-      "html-webpack-plugin": "^4.5.0",
-      "webpack": "^5.24.4",
-      "webpack-dev-server": "^3.11.0",
-      "webpack-pwa-manifest": "^4.3.0"
-    }
-  }
-  
+  "name": "rpgtracker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "heroku": "^7.50.0",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-datepicker": "^3.4.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "sweetalert2": "^10.15.5",
+    "sweetalert2-react-content": "^3.3.1",
+    "web-vitals": "^0.2.4"
+  },
+  "engines": {
+    "node": "10.15.x"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
