@@ -53,5 +53,13 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nMckenryan/rpgtracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nMckenryan/rpgtracker/issues"
+  },
+  "homepage": "https://github.com/nMckenryan/rpgtracker#readme"
 }
