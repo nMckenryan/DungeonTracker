@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@heroku/buildpack-registry": "^1.0.1",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
@@ -19,7 +18,6 @@
     "react-scripts": "4.0.1",
     "sweetalert2": "^10.15.5",
     "sweetalert2-react-content": "^3.3.1",
-    "valid-url": "^1.0.9",
     "web-vitals": "^0.2.4"
   },
   "engines": {
@@ -53,6 +51,7 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
+<<<<<<< HEAD
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -69,4 +68,7 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-pwa-manifest": "^4.3.0"
   }
+=======
+  "license": "ISC"
+>>>>>>> parent of 1f98b94 (another test)
 }
