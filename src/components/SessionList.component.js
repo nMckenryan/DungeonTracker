@@ -26,7 +26,7 @@ export default class SessionList extends Component {
     }
 
     componentDidMount() { //adds list of exercises to state before page gen
-        axios.get('https://dungeontrackerrpg.herokuapp.com/api/sessions/')
+        axios.get('http://localhost:5000/sessions/')
         .then(response => { 
             this.setState({ sessions: response.data }); //gets all fields in sessions
         })
