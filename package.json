@@ -52,6 +52,7 @@
   "keywords": [],
   "author": "",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -71,4 +72,7 @@
 =======
   "license": "ISC"
 >>>>>>> parent of 1f98b94 (another test)
+=======
+  "license": "ISC"
+>>>>>>> parent of e78e73b (Merge branch 'master' of https://github.com/nMckenryan/rpgtracker)
 }
