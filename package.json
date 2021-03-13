@@ -24,7 +24,7 @@
     "node": "10.15.x"
   },
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
