@@ -4365,8 +4365,13 @@
 "cacheable-request@^6.0.0":
   "version" "6.0.0"
   dependencies:
+    "clone-response" "^1.0.2"
+    "get-stream" "^4.0.0"
     "http-cache-semantics" "^4.0.0"
     "keyv" "^3.0.0"
+    "lowercase-keys" "^1.0.1"
+    "normalize-url" "^3.1.0"
+    "responselike" "^1.0.2"
 
 "call-bind@^1.0.0", "call-bind@^1.0.2":
   "integrity" "sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA=="
@@ -4500,9 +4505,6 @@
     "ansi-styles" "^3.2.1"
     "escape-string-regexp" "^1.0.5"
     "supports-color" "^5.3.0"
-
-"chalk@^2.1.0":
-  "version" "2.4.1"
 
 "chalk@^2.4.1":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
@@ -4916,7 +4918,7 @@
     "kind-of" "^6.0.2"
     "shallow-clone" "^3.0.0"
 
-"clone-response@1.0.2":
+"clone-response@^1.0.2", "clone-response@1.0.2":
   "integrity" "sha1-0dyXOSAxTfZ/vrlCI7TuNQI56Ws="
   "resolved" "https://registry.npmjs.org/clone-response/-/clone-response-1.0.2.tgz"
   "version" "1.0.2"
@@ -6342,9 +6344,6 @@
     "esrecurse" "^4.3.0"
     "estraverse" "^4.1.1"
 
-"eslint-utils@^1.4.3":
-  "version" "1.4.3"
-
 "eslint-utils@^2.0.0", "eslint-utils@^2.1.0":
   "integrity" "sha512-w94dQYoauyvlDc43XnGB8lU3Zt713vNChgt4EWwhXAP2XkBvndfxF0AgIqKOOasjPIPzj9JqgwkwbCYD0/V3Zg=="
   "resolved" "https://registry.yarnpkg.com/eslint-utils/-/eslint-utils-2.1.0.tgz"
@@ -6763,11 +6762,6 @@
   dependencies:
     "escape-string-regexp" "^1.0.5"
 
-"file-entry-cache@^5.0.1":
-  "version" "5.0.1"
-  dependencies:
-    "flat-cache" "^2.0.1"
-
 "file-entry-cache@^6.0.1":
   "integrity" "sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg=="
   "resolved" "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-6.0.1.tgz"
@@ -6882,11 +6876,6 @@
   dependencies:
     "locate-path" "^5.0.0"
     "path-exists" "^4.0.0"
-
-"flat-cache@^2.0.1":
-  "version" "2.0.1"
-  dependencies:
-    "write" "1.0.3"
 
 "flat-cache@^3.0.4":
   "integrity" "sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg=="
@@ -7125,17 +7114,10 @@
   "resolved" "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz"
   "version" "4.0.1"
 
-"get-stream@^3.0.0", "get-stream@3.0.0":
+"get-stream@^3.0.0", "get-stream@^4.0.0", "get-stream@^4.1.0", "get-stream@3.0.0":
   "integrity" "sha1-jpQ9E1jcN1VQVOy+LtsFqhdO3hQ="
   "resolved" "https://registry.npmjs.org/get-stream/-/get-stream-3.0.0.tgz"
   "version" "3.0.0"
-
-"get-stream@^4.0.0":
-  "integrity" "sha512-GMat4EJ5161kIy2HevLlr4luNjBgvmj413KaQA7jt4V8B4RDsfpHk7WQ9GVqfYyyx8OS/L66Kox+rJRNklLK7w=="
-  "resolved" "https://registry.yarnpkg.com/get-stream/-/get-stream-4.1.0.tgz"
-  "version" "4.1.0"
-  dependencies:
-    "pump" "^3.0.0"
 
 "get-stream@^5.0.0":
   "integrity" "sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA=="
@@ -7296,8 +7278,16 @@
   "version" "9.6.0"
   dependencies:
     "@sindresorhus/is" "^0.14.0"
+    "@szmarczak/http-timer" "^1.1.2"
     "cacheable-request" "^6.0.0"
+    "decompress-response" "^3.3.0"
+    "duplexer3" "^0.1.4"
+    "get-stream" "^4.1.0"
+    "lowercase-keys" "^1.0.1"
+    "mimic-response" "^1.0.1"
     "p-cancelable" "^1.0.0"
+    "to-readable-stream" "^1.0.0"
+    "url-parse-lax" "^3.0.0"
 
 "graceful-fs@^4.1.11", "graceful-fs@^4.1.15", "graceful-fs@^4.1.2", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.4":
   "integrity" "sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ=="
@@ -9099,6 +9089,8 @@
 
 "keyv@^3.0.0":
   "version" "3.1.0"
+  dependencies:
+    "json-buffer" "3.0.0"
 
 "keyv@3.0.0":
   "integrity" "sha512-eguHnq22OE3uVoSYG0LVWNP+4ppamWr9+zWBe1bsNcovIMy6huUJFPgy4mGwCd/rnl3vOLGW1MTlu4c57CT1xA=="
@@ -9405,7 +9397,7 @@
   dependencies:
     "tslib" "^2.0.3"
 
-"lowercase-keys@^1.0.0":
+"lowercase-keys@^1.0.0", "lowercase-keys@^1.0.1":
   "integrity" "sha512-G2Lj61tXDnVFFOi8VZds+SoQjtQC3dgokKdDG2mTm1tx4m50NUHBOZSBwQQHyy0V12A0JTG4icfZQH+xPyh8VA=="
   "resolved" "https://registry.npmjs.org/lowercase-keys/-/lowercase-keys-1.0.1.tgz"
   "version" "1.0.1"
@@ -9655,7 +9647,7 @@
   "resolved" "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz"
   "version" "2.1.0"
 
-"mimic-response@^1.0.0":
+"mimic-response@^1.0.0", "mimic-response@^1.0.1":
   "integrity" "sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ=="
   "resolved" "https://registry.npmjs.org/mimic-response/-/mimic-response-1.0.1.tgz"
   "version" "1.0.1"
@@ -10022,10 +10014,10 @@
   "resolved" "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.71.tgz"
   "version" "1.1.71"
 
-"node-sass@^4.0.0", "node-sass@^4.14.1":
-  "integrity" "sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g=="
-  "resolved" "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.1.tgz"
-  "version" "4.14.1"
+"node-sass@^4.0.0", "node-sass@^4.14.0":
+  "integrity" "sha512-AxqU+DFpk0lEz95sI6jO0hU0Rwyw7BXVEv6o9OItoXLyeygPeaSpiV4rwQb10JiTghHaa0gZeD21sz+OsQluaw=="
+  "resolved" "https://registry.npmjs.org/node-sass/-/node-sass-4.14.0.tgz"
+  "version" "4.14.0"
   dependencies:
     "async-foreach" "^0.1.3"
     "chalk" "^1.1.1"
@@ -10041,7 +10033,7 @@
     "node-gyp" "^3.8.0"
     "npmlog" "^4.0.0"
     "request" "^2.88.0"
-    "sass-graph" "2.2.5"
+    "sass-graph" "^2.2.4"
     "stdout-stream" "^1.4.0"
     "true-case-path" "^1.0.2"
 
@@ -10092,7 +10084,7 @@
   "resolved" "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz"
   "version" "3.3.0"
 
-"normalize-url@1.9.1":
+"normalize-url@^3.1.0", "normalize-url@1.9.1":
   "integrity" "sha1-LMDWazHqIwNkWENuNiDYWVTGbDw="
   "resolved" "https://registry.yarnpkg.com/normalize-url/-/normalize-url-1.9.1.tgz"
   "version" "1.9.1"
@@ -10355,9 +10347,6 @@
     "prelude-ls" "~1.1.2"
     "type-check" "~0.3.2"
     "word-wrap" "~1.2.3"
-
-"optionator@^0.8.3":
-  "version" "0.8.3"
 
 "optionator@^0.9.1":
   "integrity" "sha512-74RlY5FCnhq4jRxVUPKDaRwrVNXMqsGsiW6AJw4XK8hmtm10wC0ypZBLw5IIp85NZMr91+qd1RvvENwg7jjRFw=="
@@ -12438,7 +12427,7 @@
     "is-core-module" "^2.0.0"
     "path-parse" "^1.0.6"
 
-"responselike@1.0.2":
+"responselike@^1.0.2", "responselike@1.0.2":
   "integrity" "sha1-kYcg7ztjHFZCvgaPFa3lpG9Loec="
   "resolved" "https://registry.npmjs.org/responselike/-/responselike-1.0.2.tgz"
   "version" "1.0.2"
@@ -12459,6 +12448,7 @@
   "version" "3.1.0"
   dependencies:
     "onetime" "^5.1.0"
+    "signal-exit" "^3.0.2"
 
 "ret@~0.1.10":
   "integrity" "sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg=="
@@ -12652,7 +12642,7 @@
   "resolved" "https://registry.yarnpkg.com/sanitize.css/-/sanitize.css-10.0.0.tgz"
   "version" "10.0.0"
 
-"sass-graph@2.2.5":
+"sass-graph@^2.2.4":
   "integrity" "sha512-VFWDAHOe6mRuT4mZRd4eKE+d8Uedrk6Xnh7Sh9b4NGufQLQjOrvf/MQoOdx+0s92L89FeyUUNfU597j/3uNpag=="
   "resolved" "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.5.tgz"
   "version" "2.2.5"
@@ -13581,9 +13571,6 @@
   dependencies:
     "min-indent" "^1.0.0"
 
-"strip-json-comments@^3.0.1":
-  "version" "3.0.1"
-
 "strip-json-comments@^3.1.0", "strip-json-comments@^3.1.1":
   "integrity" "sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig=="
   "resolved" "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
@@ -14128,9 +14115,6 @@
   "integrity" "sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ=="
   "resolved" "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz"
   "version" "0.20.2"
-
-"type-fest@^0.5.2":
-  "version" "0.5.2"
 
 "type-fest@^0.6.0":
   "integrity" "sha512-q+MB8nYR1KDLrgr4G5yemftpMC7/QLqVndBmEEdqzmNj5dcFOO4Oo8qlwZE3ULT3+Zim1F8Kq4cBnikNhlCMlg=="
@@ -14986,9 +14970,6 @@
     "is-typedarray" "^1.0.0"
     "signal-exit" "^3.0.2"
     "typedarray-to-buffer" "^3.1.5"
-
-"write@1.0.3":
-  "version" "1.0.3"
 
 "ws@^6.2.1":
   "integrity" "sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA=="
